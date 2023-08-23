@@ -20,10 +20,15 @@ app.config['FLASK_ENV'] = os.environ.get('FLASK_ENV')
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 
 class MyForm(FlaskForm):
-    filename = FileField('Select configuration file: ', 
-        validators=[FileRequired(), FileAllowed(['yaml'], 
-        message='Only YAML files accepted')], 
-        description="Only YAML files accepted")
+    filename = FileField(
+        'Select configuration file: ', 
+        validators=[
+            FileRequired(), 
+            FileAllowed(['yaml'], 
+            message='Only YAML files accepted')
+            ], 
+        description="Only YAML files accepted"
+        )
     submit = SubmitField('Upload')
     
 @app.route("/", methods=('GET','POST'))
