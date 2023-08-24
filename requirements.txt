@@ -3,4 +3,5 @@ flask
 Flask-WTF
 python-dotenv
 bootstrap-flask
+gunicorn
 git+https://github.com/blinklet/usermapper.git@v0.3#egg=usermapper
