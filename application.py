@@ -9,15 +9,6 @@ from usermapper.mapperdata import get_users
 from flask_bootstrap import Bootstrap
 from dotenv import load_dotenv
 
-app = Flask(__name__)
-bootstrap = Bootstrap(app)
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-load_dotenv(os.path.join(basedir, '.env'))
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['FLASK_APP'] = os.environ.get('FLASK_APP')
-app.config['FLASK_ENV'] = os.environ.get('FLASK_ENV')
-app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 
 class MyForm(FlaskForm):
     filename = FileField(
@@ -76,3 +67,15 @@ def download(tempfolder,filename):
     temp_dir = os.path.join(basedir,tempfolder)
     return send_from_directory(
         temp_dir, filename, as_attachment=True)
+
+
+if __name__ == '__main__':
+    app = Flask(__name__)
+    bootstrap = Bootstrap(app)
+
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    load_dotenv(os.path.join(basedir, '.env'))
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+    app.config['FLASK_APP'] = os.environ.get('FLASK_APP')
+    app.config['FLASK_ENV'] = os.environ.get('FLASK_ENV')
+    app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
