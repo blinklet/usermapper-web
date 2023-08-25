@@ -1,0 +1,19 @@
+# Git files
+.git
+.gitignore
+
+# Unneeded project files
+.env.example
+README*
+
+# Python files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Docker files
+.dockerignore
+Dockerfile
+
+
